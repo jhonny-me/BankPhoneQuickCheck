@@ -1,0 +1,35 @@
+<style lang="less">
+  .searchBox {
+    width: 90%;
+    height: 60px;
+    border: solid 1px gray;
+    margin: auto;
+  }
+</style>
+<template>
+  <view>
+    <view>
+      <input class="searchBox" placeholder="键入自动搜索"/>
+    </view>
+    <repeat for="{{dataList}}" key="index" >
+      <item :value="item"></item>
+    </repeat>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import Item from '../components/item'
+  import dataList from '../constants/data'
+
+  export default class Home extends wepy.page {
+    config = {
+      navigationBarTitleText: '银行人工电话速查'
+    }
+    components = {
+      item: Item
+    }
+    data = {
+      dataList: dataList
+    }
+  }
+</script>

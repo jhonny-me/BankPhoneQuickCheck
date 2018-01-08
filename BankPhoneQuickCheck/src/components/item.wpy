@@ -1,0 +1,36 @@
+<style lang="less">
+  .item {
+    margin: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .item > image {
+    width: 44px;
+    height:44px;
+    border-radius: 50%;
+    margin: auto 20px;
+  }
+  .item text {
+    display: block;
+    margin-left: 20px;
+  }
+  .item text:last-of-type {
+    padding-bottom: 20px;
+  }
+</style>
+<template>
+  <view class="item">
+    <image src="{{value.url}}"/>
+    <text>{{value.name}}</text>
+    <text>{{value.description}}</text>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Item extends wepy.component {
+    props = {
+      value: {}
+    }
+  }
+</script>

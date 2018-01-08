@@ -1,0 +1,15 @@
+
+  <view>
+    <view>
+      <input class="searchBox" placeholder="键入自动搜索"/>
+    </view>
+    <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
+      
+  <view class="item">
+    <image src="{{item.url}}"/>
+    <text>{{item.name}}</text>
+    <text>{{item.description}}</text>
+  </view>
+
+    </block>
+  </view>
