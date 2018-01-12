@@ -6,9 +6,11 @@
     <block wx:for="{{dataList}}" wx:for-index="index" wx:for-item="item" wx:key="index">
       
   <view class="item">
-    <image src="{{item.url}}"/>
+    <image class="logo" src="../static/images/logo.jpeg"/>
     <text>{{item.name}}</text>
     <text>{{item.description}}</text>
+    <image class="star" src="../static/images/icon_star_empty.png" bindtap="$item$tapStar" data-com-index="{{index}}"/>
+    <image class="copy" src="../static/images/icon_star_filled.png" bindtap="$item$tapCopy" data-com-index="{{index}}"/>
   </view>
 
     </block>

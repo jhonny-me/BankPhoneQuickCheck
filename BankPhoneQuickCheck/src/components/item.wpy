@@ -3,12 +3,14 @@
     margin: 10px;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: relative;
   }
-  .item > image {
+  .item > .logo {
     width: 44px;
     height:44px;
     border-radius: 50%;
     margin: auto 20px;
+    padding-top: 20px;
   }
   .item text {
     display: block;
@@ -17,12 +19,29 @@
   .item text:last-of-type {
     padding-bottom: 20px;
   }
+  @iconWidth: 40px;
+  .icon() {
+    position: absolute;
+    width: @iconWidth;
+    height: @iconWidth;
+    bottom: 20px;
+  }
+  .item .star {
+    .icon;
+    right: 30px;
+  }
+  .item .copy {
+    .icon;
+    right: 50px + @iconWidth;
+  }
 </style>
 <template>
   <view class="item">
-    <image src="{{value.url}}"/>
+    <image class="logo" src="../static/images/logo.jpeg"/>
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
+    <image class="star" src="../static/images/icon_star_empty.png" @tap="tapStar"></image>
+    <image class="copy" src="../static/images/icon_star_filled.png" @tap="tapCopy"></image>
   </view>
 </template>
 <script>
@@ -31,6 +50,14 @@
   export default class Item extends wepy.component {
     props = {
       value: {}
+    }
+    methods = {
+      tapStar () {
+        console.log('stars')
+      },
+      tapCopy () {
+        console.log('copy')
+      }
     }
   }
 </script>

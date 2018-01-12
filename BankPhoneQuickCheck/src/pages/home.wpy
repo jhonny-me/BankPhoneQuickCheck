@@ -1,9 +1,10 @@
 <style lang="less">
   .searchBox {
     width: 90%;
-    height: 60px;
+    height: 40px;
     border: solid 1px gray;
     margin: auto;
+    padding: 10px;
   }
 </style>
 <template>
