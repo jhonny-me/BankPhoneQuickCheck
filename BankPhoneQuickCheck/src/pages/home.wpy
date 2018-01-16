@@ -20,7 +20,8 @@
 <script>
   import wepy from 'wepy'
   import Item from '../components/item'
-  import dataList from '../constants/data'
+  import getData from '../constants/data'
+  import observer from '../libs/observer'
 
   export default class Home extends wepy.page {
     config = {
@@ -30,7 +31,25 @@
       item: Item
     }
     data = {
-      dataList: dataList
+      dataList: getData()
+    }
+    onLoad() {
+      observer.observe(this, (stores) => {
+        var newList = getData()
+        var starredItems = stores.starredItem.list.map(item => {
+          item.starred = true
+          return item
+        })
+        stores.starredItem.list.forEach(item => {
+          const index = newList.findIndex(element => { return element.id === item.id })
+          if (index !== -1) {
+            newList.splice(index, 1)
+          }
+        })
+        newList = starredItems.concat(newList)
+        this.dataList = newList
+        this.$apply()
+      })
     }
   }
 </script>

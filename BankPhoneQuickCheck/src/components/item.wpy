@@ -40,12 +40,13 @@
     <image class="logo" src="../static/images/logo.jpeg"/>
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
-    <image class="star" src="../static/images/icon_star_empty.png" @tap="tapStar"></image>
+    <image class="star" src="{{value.starred ? '../static/images/icon_star_filled.png' : '../static/images/icon_star_empty.png' }}" @tap="tapStar()"></image>
     <image class="copy" src="../static/images/icon_star_filled.png" @tap="tapCopy"></image>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
+  import starredItem from '../stores/starredStore'
 
   export default class Item extends wepy.component {
     props = {
@@ -53,7 +54,7 @@
     }
     methods = {
       tapStar () {
-        console.log('stars')
+        starredItem.star(this.value)
       },
       tapCopy () {
         console.log('copy')
