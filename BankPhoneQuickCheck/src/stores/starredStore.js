@@ -19,7 +19,7 @@ class StarredStore extends Store {
       this.list.push(item)
       this.list = this.list
     }else {
-      this.list.splice(index, 1).starred = false
+      this.list.splice(index, 1)
       this.list = this.list
     }
   }

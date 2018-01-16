@@ -1,2 +1,0 @@
-@import "./../components/item.wxss";
-.searchBox{width:90%;height:40px;border:solid 1px gray;margin:auto;padding:10px}

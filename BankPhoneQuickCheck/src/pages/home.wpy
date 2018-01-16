@@ -6,15 +6,20 @@
     margin: auto;
     padding: 10px;
   }
+  .list {
+    padding: 10px 0;
+  }
 </style>
 <template>
   <view>
     <view>
       <input class="searchBox" placeholder="键入自动搜索"/>
     </view>
-    <repeat for="{{dataList}}" key="index" >
-      <item :value="item"></item>
-    </repeat>
+    <view class="list">
+      <repeat for="{{dataList}}" key="index" >
+        <item :value="item"></item>
+      </repeat>
+    </view>
   </view>
 </template>
 <script>

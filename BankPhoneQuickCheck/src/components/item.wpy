@@ -41,7 +41,7 @@
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
     <image class="star" src="{{value.starred ? '../static/images/icon_star_filled.png' : '../static/images/icon_star_empty.png' }}" @tap="tapStar()"></image>
-    <image class="copy" src="../static/images/icon_star_filled.png" @tap="tapCopy"></image>
+    <image class="copy" src="../static/images/icon_phone.png" @tap="tapCopy"></image>
   </view>
 </template>
 <script>
@@ -58,6 +58,9 @@
       },
       tapCopy () {
         console.log('copy')
+        wx.makePhoneCall({
+          phoneNumber: this.value.phoneNumber
+        })
       }
     }
   }
