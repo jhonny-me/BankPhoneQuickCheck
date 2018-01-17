@@ -18,8 +18,10 @@
   }
   .item text:last-of-type {
     padding-bottom: 20px;
+    font-size: smaller;
+    width: 60%;
   }
-  @iconWidth: 40px;
+  @iconWidth: 30px;
   .icon() {
     position: absolute;
     width: @iconWidth;
@@ -30,18 +32,18 @@
     .icon;
     right: 30px;
   }
-  .item .copy {
+  .item .dail {
     .icon;
     right: 50px + @iconWidth;
   }
 </style>
 <template>
   <view class="item">
-    <image class="logo" src="../static/images/logo.jpeg"/>
+    <image class="logo" mode="aspectFit" src="../static/images/logo.jpeg"/>
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
     <image class="star" src="{{value.starred ? '../static/images/icon_star_filled.png' : '../static/images/icon_star_empty.png' }}" @tap="tapStar()"></image>
-    <image class="copy" src="../static/images/icon_phone.png" @tap="tapCopy"></image>
+    <image class="dail" src="../static/images/icon_phone.png" @tap="tapCopy"></image>
   </view>
 </template>
 <script>
