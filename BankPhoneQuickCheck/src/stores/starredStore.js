@@ -17,11 +17,23 @@ class StarredStore extends Store {
     })
     if (index === -1) {
       this.list.push(item)
-      this.list = this.list
     }else {
       this.list.splice(index, 1)
-      this.list = this.list
     }
+    this.list = this.list
+    wx.setStorage({
+      key: 'com.johnny.bankBook',
+      data: this.list
+    })
+  }
+
+  load() {
+    wx.getStorage({
+      key: 'com.johnny.bankBook',
+      success: (res) => {
+        this.list = res.data
+      }
+    })
   }
 }
 
