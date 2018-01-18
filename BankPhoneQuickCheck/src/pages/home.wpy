@@ -13,7 +13,7 @@
 <template>
   <view>
     <view>
-      <input class="searchBox" placeholder="键入自动搜索"/>
+      <input class="searchBox" placeholder="键入自动搜索" @input="bindInput" value="{{inputValue}}"/>
     </view>
     <view class="list">
       <repeat for="{{dataList}}" key="index" >
@@ -24,6 +24,8 @@
 </template>
 <script>
   import wepy from 'wepy'
+  import keywordMatch from '../libs/keywordMatch'
+
   import Item from '../components/item'
   import getData from '../constants/data'
   import observer from '../libs/observer'
@@ -36,7 +38,18 @@
       item: Item
     }
     data = {
-      dataList: getData()
+      dataList: getData(),
+      inputValue: ''
+    }
+    customData = {
+      storedDataList: getData()
+    }
+    methods = {
+      bindInput (e) {
+        this.inputValue = e.detail.value
+        const result = keywordMatch(this.customData.storedDataList, e.detail.value)
+        this.dataList = result.length === 0 ? this.customData.storedDataList : result
+      }
     }
     onLoad() {
       observer.observe(this, (stores) => {
@@ -53,6 +66,7 @@
         })
         newList = starredItems.concat(newList)
         this.dataList = newList
+        this.customData.storedDataList = newList
         this.$apply()
       })
     }
