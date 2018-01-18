@@ -13,6 +13,8 @@
 import wepy from 'wepy'
 import 'wepy-async-function'
 
+import starredStore from './stores/starredStore'
+
 export default class extends wepy.app {
   config = {
     pages: [
@@ -36,7 +38,10 @@ export default class extends wepy.app {
   }
 
   onLaunch() {
-    this.testAsync()
+    setTimeout(() => {
+      starredStore.load()
+    }, 1000)
+//    this.testAsync()
   }
 
   sleep (s) {
