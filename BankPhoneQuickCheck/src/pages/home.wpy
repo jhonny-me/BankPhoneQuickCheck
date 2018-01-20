@@ -20,6 +20,7 @@
         <item :value="item"></item>
       </repeat>
     </view>
+    <author></author>
   </view>
 </template>
 <script>
@@ -27,6 +28,7 @@
   import keywordMatch from '../libs/keywordMatch'
 
   import Item from '../components/item'
+  import Author from '../components/authorInfo'
   import getData from '../constants/data'
   import observer from '../libs/observer'
 
@@ -35,7 +37,8 @@
       navigationBarTitleText: '银行人工电话速查'
     }
     components = {
-      item: Item
+      item: Item,
+      author: Author
     }
     data = {
       dataList: getData(),

@@ -1,27 +1,28 @@
 <style lang="less">
-  .item {
+  .author {
     margin: 10px;
     border-radius: 4px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: relative;
   }
-  .item .logoView {
+  .author > .logoView {
     margin: auto 20px;
     padding-top: 20px;
   }
-  .item .logo {
+  .author .logo {
     width: 44px;
     height:44px;
     border-radius: 50%;
   }
-  .item text {
+  .author text {
     display: block;
+    font-size: medium;
     margin-left: 20px;
   }
-  .item text:last-of-type {
+  .author text:last-of-type {
     padding-bottom: 20px;
-    font-size: smaller;
-    width: 60%;
+    font-size: small;
+    width: 90%;
   }
   @iconWidth: 30px;
   .icon() {
@@ -31,43 +32,34 @@
     bottom: 20px;
   }
   .item .star {
-    .icon;
+  .icon;
     right: 30px;
   }
   .item .dail {
-    .icon;
+  .icon;
     right: 50px + @iconWidth;
   }
 </style>
 <template>
-  <view class="item">
+  <view class="author">
     <view class="logoView">
-      <image class="logo" mode="aspectFit" src="../static/images/logo.jpeg"/>
+      <image class="logo" mode="aspectFill" src="{{value.logo}}"/>
     </view>
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
-    <image class="star" src="{{value.starred ? '../static/images/icon_star_filled.png' : '../static/images/icon_star_empty.png' }}" @tap="tapStar()"></image>
-    <image class="dail" src="../static/images/icon_phone.png" @tap="tapCopy"></image>
+    <!--<image class="star" src="{{value.starred ? '../static/images/icon_star_filled.png' : '../static/images/icon_star_empty.png' }}" @tap="tapStar()"></image>-->
+    <!--<image class="dail" src="../static/images/icon_phone.png" @tap="tapCopy"></image>-->
   </view>
 </template>
 <script>
   import wepy from 'wepy'
-  import starredItem from '../stores/starredStore'
+  import author from '../constants/authorInfo'
 
   export default class Item extends wepy.component {
-    props = {
-      value: {}
+    data = {
+      value: author
     }
     methods = {
-      tapStar () {
-        starredItem.star(this.value)
-      },
-      tapCopy () {
-        console.log('copy')
-        wx.makePhoneCall({
-          phoneNumber: this.value.phoneNumber
-        })
-      }
     }
   }
 </script>
