@@ -10,13 +10,12 @@
     padding-top: 20px;
   }
   .item .logo {
-    width: 44px;
-    height:44px;
-    border-radius: 50%;
+    width: 100px;
   }
   .item text {
     display: block;
-    margin-left: 20px;
+    /*margin-left: 20px;*/
+    margin: 10px 0 10px 20px;
   }
   .item text:last-of-type {
     padding-bottom: 20px;
@@ -42,7 +41,7 @@
 <template>
   <view class="item">
     <view class="logoView">
-      <image class="logo" mode="aspectFit" src="../static/images/logo.jpeg"/>
+      <image class="logo" mode="widthFix" src="{{value.logo}}"/>
     </view>
     <text>{{value.name}}</text>
     <text>{{value.description}}</text>
