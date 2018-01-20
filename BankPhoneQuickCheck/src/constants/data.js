@@ -26,17 +26,17 @@ module.exports = function () {
     },
     {
       "id": "03",
-      "name": "招商银行金葵花",
+      "name": "招商银行储蓄卡",
       "description": "95555",
       "logo": "../static/images/bank_logos/logo_zhaoshang.gif",
-      "phoneNumber": "95555 "
+      "phoneNumber": "95555 - 3 - 5 - 9 - 卡号"
     },
     {
       "id": "04",
       "name": "招商银行信用卡",
       "description": "4008205555",
       "logo": "../static/images/bank_logos/logo_zhaoshang.gif",
-      "phoneNumber": "4008205555"
+      "phoneNumber": "4008205555 - 密码 - 9 - 1 - 证件号码后四位"
     },
     {
       "id": "05",
