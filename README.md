@@ -14,6 +14,6 @@ This project is a WeChat mini app build by wepy.
 
 ## Demo
 
-![screenshot](https://user-images.githubusercontent.com/9820374/35191918-0884e826-fec2-11e7-98e3-79195035)
+![screenshot](https://user-images.githubusercontent.com/9820374/35192002-c96419a8-fec3-11e7-9bb4-7e01d70ee9f5.PNG)
 
 ![video](https://user-images.githubusercontent.com/9820374/35191960-0b1a053e-fec3-11e7-8a43-61a11936d653.gif)
