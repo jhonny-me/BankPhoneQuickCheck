@@ -73,5 +73,11 @@
         this.$apply()
       })
     }
+    onShareAppMessage() {
+      return {
+        title: '银行人工电话速查',
+        path: '/pages/home'
+      }
+    }
   }
 </script>
